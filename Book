@@ -1,0 +1,182 @@
+//Eclipse Package
+package BookPck;
+
+import java.util.Stack;
+
+public class Book {
+    String title;
+    String author;
+    String isbn;
+
+
+
+
+    public Book(String title, String author, String isbn) {
+
+        this.title = title;
+
+        this.author = author;
+
+        this.isbn = isbn;
+
+    }
+
+}
+
+
+
+class BookStack {
+
+    private Stack<Book> stack;
+
+
+
+    public BookStack() {
+
+        stack = new Stack<>();
+
+    }
+
+
+
+    public void push(Book book) {
+
+        stack.push(book);
+
+    }
+
+
+
+    public Book pop() {
+
+        return stack.pop();
+
+    }
+
+
+
+    public boolean isEmpty() {
+
+        return stack.isEmpty();
+
+    }
+
+
+
+    public int size() {
+
+        return stack.size();
+
+    }
+
+
+
+    public Book peek() {
+
+        return stack.peek();
+
+    }
+
+}
+
+
+//Main
+public class Main {
+
+    public static void main(String[] args) {
+
+        BookStack bookStack = new BookStack();
+
+
+
+        // Pushing books to the stack
+
+        Book book1 = new Book("Title 1", "Author 1", "ISBN 1");
+
+        Book book2 = new Book("Title 2", "Author 2", "ISBN 2");
+        
+        Book book3 = new Book("Title 3", "Author 1", "ISBN 3");
+
+        Book book4 = new Book("Title 4", "Author 2", "ISBN 4");
+        
+        Book book5 = new Book("Title 5", "Author 1", "ISBN 5");
+
+        Book book6 = new Book("Title 6", "Author 2", "ISBN 6");
+        
+        Book book7 = new Book("Title 7", "Author 1", "ISBN 7");
+
+        Book book8 = new Book("Title 8", "Author 2", "ISBN 8");
+        
+        Book book9 = new Book("Title 9", "Author 1", "ISBN 9");
+
+        Book book10 = new Book("Title 10", "Author 2", "ISBN 10");
+        
+        
+
+        bookStack.push(book1);
+
+        bookStack.push(book2);
+        
+        bookStack.push(book3);
+
+        bookStack.push(book4);
+        
+        bookStack.push(book5);
+
+        bookStack.push(book6);
+        
+        bookStack.push(book7);
+
+        bookStack.push(book8);
+        
+        bookStack.push(book9);
+
+        bookStack.push(book10);
+
+
+
+        System.out.println("Stack size: " + bookStack.size());
+
+
+
+        // Popping a book from the stack
+
+        Book poppedBook = bookStack.pop();
+
+        System.out.println("Popped book: " + poppedBook.title);
+
+        System.out.println("Stack size: " + bookStack.size());
+
+        // Checking if the stack is empty
+
+        System.out.println("Is stack empty? " + bookStack.isEmpty());
+
+
+
+        // Peeking at the top book
+
+        Book topBook = bookStack.peek();
+
+        System.out.println("Top book: " + topBook.title);
+
+        System.out.println("Is stack empty? " + bookStack.isEmpty());
+
+        System.out.println("Stack size: " + bookStack.size());
+
+        System.out.println("Popped book: " + poppedBook.title);
+
+    }
+
+}
+
+
+//Output
+
+Stack size: 10
+Popped book: Title 10
+Stack size: 9
+Is stack empty? false
+Top book: Title 9
+Is stack empty? false
+Stack size: 9
+Popped book: Title 10
