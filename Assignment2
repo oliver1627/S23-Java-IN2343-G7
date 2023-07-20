@@ -1,0 +1,49 @@
+public class Main {
+    public static void main(String[] args) {
+        findCode();
+    }
+    
+    public static void findCode() {
+        for(int i = 1; i < 10; i++) {
+            for(int j = 1; j < 10; j++) {
+                for(int k = 1; k < 10; k++) {
+                    for(int l = 1; l < 10; l++) {
+                        if(i != j && i != k && i != l && j != k && j != l && k != l) {
+                            if(i * j * k * l == 24) {
+                                System.out.println("The code is: " + i + j + k + l);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+//Output
+The code is: 1234
+The code is: 1243
+The code is: 1324
+The code is: 1342
+The code is: 1423
+The code is: 1432
+The code is: 2134
+The code is: 2143
+The code is: 2314
+The code is: 2341
+The code is: 2413
+The code is: 2431
+The code is: 3124
+The code is: 3142
+The code is: 3214
+The code is: 3241
+The code is: 3412
+The code is: 3421
+The code is: 4123
+The code is: 4132
+The code is: 4213
+The code is: 4231
+The code is: 4312
+The code is: 4321
