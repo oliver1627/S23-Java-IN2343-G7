@@ -1,0 +1,111 @@
+
+public record current() {
+
+}
+
+public class Student {
+    private String name;
+    private int id;
+    private float grade;
+	public static Student data;
+
+    public Student(String name, int id, float grade) {
+        this.name = name;
+        this.id = id;
+        this.grade = grade;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public float getGrade() {
+        return grade;
+    }
+}
+
+
+
+class LinkedList {
+    Node head;
+
+    public void addStudent(Student student) {
+        Node newNode = new Node(student);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = (Node) current.next;
+            }
+            current.next = newNode;
+        }
+    }
+
+class Node {
+    Student data; 
+    Node next1; 
+	public Node next;
+
+    public Node(Student student) {
+        data = student;
+        next1 = null;
+    }
+
+public void displayStudents() {
+    Node current = next1;
+    while (current != null) {
+   
+    }
+}
+} 
+
+
+public void displayStudents() {
+    Node current = head;
+    while (current != null) {
+        Student student1 = current.data;
+        System.out.println("Name: " + student1.getName());
+        System.out.println("ID: " + student1.getId());
+        System.out.println("Grade: " + student1.getGrade());
+        System.out.println("----------------------");
+        current = current.next;
+    }
+}
+
+public static class Node {
+    Student data;
+    Node next;
+
+    public Node(Student student) {
+        data = student;
+        next = null;
+    }
+}
+}
+
+
+public class students{
+	    public static void main(String[] args) {
+	       
+	    	Student student1 = new Student("Oliver De Ocampo", 112233, 85.5f);
+	        Student student2 = new Student("Peter Sigurdson", 445566, 92.3f);
+
+	      
+	      
+	        System.out.println("Name: " + student1.getName());
+	        System.out.println("ID: " + student1.getId());
+	        System.out.println("Grade: " + student1.getGrade());
+	        System.out.println("----------------------");
+
+	        
+	        System.out.println("Name: " + student2.getName());
+	        System.out.println("ID: " + student2.getId());
+	        System.out.println("Grade: " + student2.getGrade());
+	        System.out.println("----------------------");
+	    }
+	}
