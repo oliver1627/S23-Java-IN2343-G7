@@ -101,3 +101,29 @@ public class TrafficLight {
         return isGreen;
     }
 }
+
+
+//Output:
+Time: 0 seconds
+Traffic light is green for: S
+Car waiting at red light: N
+Car waiting at red light: N
+Car waiting at red light: W
+Car going S with speed 46 km/h
+Car going S with speed 24 km/h
+Car waiting at red light: W
+Car waiting at red light: W
+Car waiting at red light: N
+Car waiting at red light: N
+Car waiting at red light: W
+Car waiting at red light: N
+Car waiting at red light: E
+Car waiting at red light: W
+Car waiting at red light: E
+Car waiting at red light: W
+Car waiting at red light: W
+Car waiting at red light: N
+Car waiting at red light: N
+Car waiting at red light: W
+Car waiting at red light: E
+------------------
