@@ -51,3 +51,12 @@ public class RetrieveDogFood {
         scanner.close();
     }
 }
+
+
+//Output:
+Dog: Bullet
+Initial food Quantity: 10 units
+Enter the amount of stolen dog food: 2
+Dog: Bullet
+Remaining Food Quantity: 8 units
+
