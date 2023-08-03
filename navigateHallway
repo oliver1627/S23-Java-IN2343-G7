@@ -53,3 +53,11 @@ public class Main {
         System.out.println();
     }
 }
+
+
+//Output
+Path:
+1 1 0 0 
+0 1 0 0 
+0 1 1 1 
+0 0 0 1 
