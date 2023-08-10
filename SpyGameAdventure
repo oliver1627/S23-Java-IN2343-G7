@@ -1,0 +1,147 @@
+package SpyAdventureGamePackage;
+
+import java.util.Scanner;
+
+
+
+public class PlayGame {
+    private Hero hero;
+    private Villain villain;
+    private FurSquad furSquad;
+    private GameWorld gameWorld;
+    
+	public static void main(String[] args) {
+		PlayGame game = new PlayGame();
+		game.startGame();
+		
+		String heroName = "Spy Peanut";
+        int heroHealth = 100;
+        String villainName = "Herr Wolf";
+        int villainHealth = 200;
+
+        String[] squadMembers = {"Agent 1", "Agent 2", "Agent 3"};
+        int[] squadHealth = {80, 90, 85};
+
+        String currentLocation = "Secret Hideout";
+
+        System.out.println("----- Game Information -----");
+        System.out.println("Hero Name: " + heroName);
+        System.out.println("Hero Health: " + heroHealth);
+        System.out.println("Villain Name: " + villainName);
+        System.out.println("Villain Health: " + villainHealth);
+        System.out.println("Fur Squad Members:");
+        for (int i = 0; i < squadMembers.length; i++) {
+            System.out.println(squadMembers[i] + " - Health: " + squadHealth[i]);
+        }
+        System.out.println("Current Location: " + currentLocation);
+	
+	}
+    public PlayGame() {
+    	 hero = new Hero("Spy Peanut", 100);
+         villain = new Villain("Herr Wolf", 200);
+         
+         String[] squadMembers = {"Agent 1", "Agent 2", "Agent 3"};
+         int[] squadHealth = {80, 90, 85};
+         furSquad = new FurSquad(squadMembers, squadHealth);
+         
+         gameWorld = new GameWorld("Secret Hideout");
+    }
+
+    public void startGame() {
+    	boolean gameOver = false;
+
+        while (!gameOver) {
+            System.out.println("Choose your next action, Agent:");
+            System.out.println("1. Battle Herr Wolf");
+            System.out.println("2. Exit");
+            
+            Scanner scanner = new Scanner(System.in);
+            int choice = scanner.nextInt();
+            
+            switch (choice) {
+                case 1:
+                    // Logic for battling Herr Wolf
+                    // ...
+                    break;
+                case 2:
+                    gameOver = true;
+                    System.out.println("Exiting the game...");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Please choose again.");
+                    break;
+                    }
+        }
+    }          
+                        
+
+    
+}
+public class HerrWolf extends Villain {
+    private String evilPlan;
+
+    public HerrWolf(String name, int health, String evilPlan) {
+        super(name, health);
+        this.setEvilPlan(evilPlan);
+    }
+
+	public String getEvilPlan() {
+		return evilPlan;
+	}
+
+	public void setEvilPlan(String evilPlan) {
+		this.evilPlan = evilPlan;
+	}
+
+    // Other methods specific to Herr Wolf
+}
+
+public class Hero {
+	private String name;
+    private int health;
+
+    public Hero(String name, int health) {
+        this.name = name;
+        this.health = health;
+    }
+
+    public void displayInfo() {
+        System.out.println("Hero Name: " + name);
+        System.out.println("Health: " + health);
+    }
+}
+
+	public class GameWorld {
+	    private String location;
+
+	    public GameWorld(String location) {
+	        this.location = location;
+	    }
+
+	    public void displayLocation() {
+	        System.out.println("Current Location: " + location);
+	    }
+}
+
+public class FurSquad {
+	 private String[] members;
+	    private int[] healths;
+
+	    public FurSquad(String[] members, int[] healths) {
+	        this.members = members;
+	        this.healths = healths;
+	    }
+
+	    public void displayInfo() {
+	        System.out.println("Fur Squad Members:");
+	        for (int i = 0; i < members.length; i++) {
+	            System.out.println(members[i] + " - Health: " + healths[i]);
+	        }
+	    }
+}
+
+
+//output
+Choose your next action, Agent:
+1. Battle Herr Wolf
+2. Exit
