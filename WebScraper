@@ -1,0 +1,117 @@
+package WebcrwalerPck;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import org.json.JSONObject;
+
+public class WebScraper {
+    public static void main(String[] args) throws IOException {
+        String url = "https://cnn.com/index.html";
+        
+        Document doc = Jsoup.connect(url).get();
+        Elements links = doc.select("a[href]");
+        
+        int i = 0;
+
+        for (var link : links) {
+            String linkHref = link.attr("abs:href");
+            Document linkedDoc = Jsoup.connect(linkHref).get();
+
+            // We'll store the title and body of the linked page.
+            String title = linkedDoc.title();
+            String body = linkedDoc.body().text();
+
+         // Create a JSON object.
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("title", title);
+            jsonObject.put("body", body);
+
+            // Write the JSON object to a file.
+            String jsonString = jsonObject.toString();
+            Files.write(Paths.get("page" + i++ + ".json"), jsonString.getBytes());
+            
+
+            System.out.println("Data from " + linkHref + " stored to JSON file.");
+        }
+    }
+}
+
+
+//Output
+Data from https://www.cnn.com stored to JSON file.
+Data from https://www.cnn.com/us stored to JSON file.
+Data from https://www.cnn.com/world stored to JSON file.
+Data from https://www.cnn.com/politics stored to JSON file.
+Data from https://www.cnn.com/business stored to JSON file.
+Data from https://www.cnn.com/opinions stored to JSON file.
+Data from https://www.cnn.com/health stored to JSON file.
+Data from https://www.cnn.com/entertainment stored to JSON file.
+Data from https://www.cnn.com/style stored to JSON file.
+Data from https://www.cnn.com/travel stored to JSON file.
+Data from https://www.cnn.com/sports stored to JSON file.
+Data from https://www.cnn.com/video stored to JSON file.
+Data from https://www.cnn.com/us stored to JSON file.
+Data from https://www.cnn.com/world stored to JSON file.
+Data from https://www.cnn.com/politics stored to JSON file.
+Data from https://www.cnn.com/business stored to JSON file.
+Data from https://www.cnn.com/opinions stored to JSON file.
+Data from https://www.cnn.com/health stored to JSON file.
+Data from https://www.cnn.com/entertainment stored to JSON file.
+Data from https://www.cnn.com/style stored to JSON file.
+Data from https://www.cnn.com/travel stored to JSON file.
+Data from https://www.cnn.com/sports stored to JSON file.
+Data from https://www.cnn.com/video stored to JSON file.
+Data from https://www.cnn.com/audio stored to JSON file.
+Data from https://www.cnn.com/live-tv stored to JSON file.
+Data from https://www.cnn.com/account/settings stored to JSON file.
+Data from https://www.cnn.com/account/my-news?iid=fw_var-nav stored to JSON file.
+Data from https://www.cnn.com/# stored to JSON file.
+Data from https://www.cnn.com/# stored to JSON file.
+Data from https://www.cnn.com/account/settings stored to JSON file.
+Data from https://www.cnn.com/account/my-news?iid=fw_var-nav stored to JSON file.
+Data from https://www.cnn.com/# stored to JSON file.
+Data from https://www.cnn.com/# stored to JSON file.
+Data from https://www.cnn.com/live-tv stored to JSON file.
+Data from https://www.cnn.com/audio stored to JSON file.
+Data from https://us.cnn.com?hpt=header_edition-picker stored to JSON file.
+Data from https://edition.cnn.com?hpt=header_edition-picker stored to JSON file.
+Data from https://arabic.cnn.com?hpt=header_edition-picker stored to JSON file.
+Data from https://cnnespanol.cnn.com/?hpt=header_edition-picker stored to JSON file.
+Data from https://us.cnn.com?hpt=header_edition-picker stored to JSON file.
+Data from https://edition.cnn.com?hpt=header_edition-picker stored to JSON file.
+Data from https://arabic.cnn.com?hpt=header_edition-picker stored to JSON file.
+Data from https://cnnespanol.cnn.com/?hpt=header_edition-picker stored to JSON file.
+Data from https://www.cnn.com/us stored to JSON file.
+Data from https://www.cnn.com/us/crime-and-justice stored to JSON file.
+Data from https://www.cnn.com/specials/us/energy-and-environment stored to JSON file.
+Data from https://www.cnn.com/specials/us/extreme-weather stored to JSON file.
+Data from https://www.cnn.com/specials/space-science stored to JSON file.
+Data from https://www.cnn.com/world stored to JSON file.
+Data from https://www.cnn.com/world/africa stored to JSON file.
+Data from https://www.cnn.com/world/americas stored to JSON file.
+Data from https://www.cnn.com/world/asia stored to JSON file.
+Data from https://www.cnn.com/world/australia stored to JSON file.
+Data from https://www.cnn.com/world/china stored to JSON file.
+Data from https://www.cnn.com/world/europe stored to JSON file.
+Data from https://www.cnn.com/world/india stored to JSON file.
+Data from https://www.cnn.com/world/middle-east stored to JSON file.
+Data from https://www.cnn.com/world/united-kingdom stored to JSON file.
+Data from https://www.cnn.com/politics stored to JSON file.
+Data from https://www.cnn.com/specials/politics/supreme-court-nine stored to JSON file.
+Data from https://www.cnn.com/specials/politics/congress stored to JSON file.
+Data from https://www.cnn.com/specials/politics/fact-check-politics stored to JSON file.
+Data from https://www.cnn.com/election/2020/primaries-and-caucuses stored to JSON file.
+Data from https://www.cnn.com/business stored to JSON file.
+Data from https://www.cnn.com/business/tech stored to JSON file.
+Data from https://www.cnn.com/business/media stored to JSON file.
+Data from https://www.cnn.com/business/financial-calculators stored to JSON file.
+Data from https://www.cnn.com/business/videos stored to JSON file.
+Data from https://www.cnn.com/markets stored to JSON file.
+Data from https://www.cnn.com/markets/premarkets stored to JSON file.
+Data from https://www.cnn.com/markets/after-hours stored to JSON file.
+Data from https://money.cnn.com/data/hotstocks/ stored to JSON file.
+........
