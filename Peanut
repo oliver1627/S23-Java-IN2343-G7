@@ -29,3 +29,15 @@ class Student {
 	public String studentID;
 	public String program;
 }
+
+//Output
+Student0 ID0 Program0
+Student1 ID1 Program1
+Student2 ID2 Program2
+Student3 ID3 Program3
+Student4 ID4 Program4
+Student5 ID5 Program5
+Student6 ID6 Program6
+Student7 ID7 Program7
+Student8 ID8 Program8
+Student9 ID9 Program9
