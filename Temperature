@@ -97,3 +97,7 @@ public class TemperatureServiceProvider {
         }
     }
 }
+
+//Output
+Sending 'GET' request to URL : http://localhost:8080/celsiusToFahrenheit?temp=25.0
+Response Code : 200
