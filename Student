@@ -109,3 +109,14 @@ public class students{
 	        System.out.println("----------------------");
 	    }
 	}
+
+
+//Output
+Name: Oliver De Ocampo
+ID: 112233
+Grade: 85.5
+----------------------
+Name: Peter Sigurdson
+ID: 445566
+Grade: 92.3
+----------------------
