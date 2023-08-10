@@ -1,0 +1,65 @@
+package WebcrwalerPck;
+
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+    	Document document;
+        try {
+            // Get the HTML document
+            document = Jsoup.connect("https://cnn.com").get();
+
+            // Get the title of the webpage
+            String title = document.title();
+            System.out.println("Title: " + title);
+
+            // Get all links on the page
+            Elements links = document.select("a[href]");
+
+            // Create an ArrayList to store the links
+            ArrayList<String> linkList = new ArrayList<>();
+
+            // Iterate through the links and add them to the ArrayList
+            for (Element link : links) {
+                String url = link.attr("href");
+                System.out.println("Link: " + url);
+                linkList.add(url);
+            }
+
+            // Print the ArrayList of links
+            System.out.println("Retrieved URLs:");
+            for (String link : linkList) {
+                System.out.println(link);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+//Output
+https://instagram.com/CNN
+/account/settings
+/account/my-news?iid=fw_var-nav
+#
+#
+https://www.cnn.com/terms
+https://www.cnn.com/privacy
+#
+https://warnermediaprivacy.com/policycenter/b2c/WMNS
+https://www.cnn.com/accessibility
+https://www.cnn.com/about
+https://www.cnn.com/newsletters
+https://www.cnn.com/transcripts
+
