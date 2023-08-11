@@ -66,6 +66,12 @@ public class TemperatureConsumer {
     }
 }
 
+//Output
+Sending 'GET' request to URL : http://localhost:8080/celsiusToFahrenheit?temp=25.0
+Response Code : 200
+
+TemperatureServiceProvider 
+
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
@@ -98,6 +104,4 @@ public class TemperatureServiceProvider {
     }
 }
 
-//Output
-Sending 'GET' request to URL : http://localhost:8080/celsiusToFahrenheit?temp=25.0
-Response Code : 200
+
