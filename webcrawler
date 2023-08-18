@@ -1,0 +1,85 @@
+package webcrawlerproject;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class webcrawler {
+
+    public static void main(String[] args) {
+
+        Document document;
+        try {
+            // Get the HTML document
+            document = Jsoup.connect("http://cnn.com").get();
+
+            // Get the title of the webpage
+            String title = document.title();
+            System.out.println("Title: " + title);
+
+            // Get all links on the page
+            Elements links = document.select("a[href]");
+            
+            LinkStore linkStore = new LinkStore();
+            for (Element link : links) {
+                linkStore.addLink(new Link(link.attr("href")));
+            }
+            linkStore.displayLinks();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static class LinkStore {
+        private final List<Link> links;
+
+        public LinkStore() {
+            this.links = new ArrayList<>();
+        }
+
+        public void addLink(Link link) {
+            this.links.add(link);
+        }
+
+        public void displayLinks() {
+            for (Link link : links) {
+                System.out.println(link.getLink());
+            }
+        }
+    }
+
+    public static class Link {
+        private final String link;
+
+        public Link(String link) {
+            this.link = link;
+        }
+
+        public String getLink() {
+            return this.link;
+        }
+    }
+}
+
+
+
+//Output
+Data from https://www.cnn.com/2023/08/17/business/trader-joe-self-checkouts-cashier/index.html stored to JSON file.
+Data from https://www.cnn.com/videos/us/2023/08/17/maryland-escaped-inmate-caught-video-affil-cprog-vpx.wbal stored to JSON file.
+Data from https://www.cnn.com/videos/us/2023/08/17/maryland-escaped-inmate-caught-video-affil-cprog-vpx.wbal stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/business/danny-meyer-restaurant-closures/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/business/danny-meyer-restaurant-closures/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/investing/hawaiian-electric-stock-maui-wildfires/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/business/blue-shield-california-new-pharmacy-care/index.html stored to JSON file.
+Exception in thread "main" org.jsoup.HttpStatusException: HTTP error fetching URL. Status=403, URL=[https://www.cnn.com/cnn-underscored]
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:912)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:851)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:345)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:330)
+	at webcrawlerproject.webscraper.main(webscraper.java:22)
+
