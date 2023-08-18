@@ -1,0 +1,60 @@
+package webcrawlerproject;
+
+
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // ... (your code to fetch and store URLs into linkList)
+
+        // Sample ArrayList of URLs (replace this with your actual ArrayList)
+        ArrayList<String> linkList = new ArrayList<>();
+        linkList.add("http://example.com");
+        linkList.add("http://example2.com");
+
+        // Repeat the page content acquisition process for each URL in the ArrayList
+        for (String url : linkList) {
+            System.out.println("Fetching content for URL: " + url);
+            WebPageFetcher.fetchAndPrintPageContent(url);
+        }
+    }
+}
+
+
+//Output
+
+Fetching content for URL: http://example.com
+Title: Example Domain
+Links on the page:
+https://www.iana.org/domains/example
+Fetching content for URL: http://example2.com
+Title: Example - Example
+Links on the page:
+#content
+https://example2.com
+https://example2.com/category/life-tips/
+https://example2.com/category/travel/
+https://example2.com/category/entertainment/
+https://example2.com/category/health/
+https://example2.com/category/life-tips/
+https://example2.com/category/travel/
+https://example2.com/category/entertainment/
+https://example2.com/category/health/
+https://example2.com/attitude-captions/
+https://example2.com/category/life-tips/
+https://example2.com/attitude-captions/
+https://example2.com/author/simona/
+https://example2.com/attitude-captions/
+#tab1
+#tab2
+#tab3
+#tab4
+https://example2.com/attitude-captions/
+https://example2.com/attitude-captions/
+https://example2.com/about/
+https://example2.com/contact/
+https://example2.com/terms-and-conditions/
+https://example2.com/privacy-policy/
+https://example2.com
+#top
