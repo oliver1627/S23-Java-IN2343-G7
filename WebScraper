@@ -1,4 +1,4 @@
-package WebcrwalerPck;
+package webcrawlerproject;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,9 +8,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.json.JSONObject;
 
-public class WebScraper {
+public class webscraper {
     public static void main(String[] args) throws IOException {
-        String url = "https://cnn.com/index.html";
+        String url = "http://cnn.com";
         
         Document doc = Jsoup.connect(url).get();
         Elements links = doc.select("a[href]");
@@ -25,7 +25,7 @@ public class WebScraper {
             String title = linkedDoc.title();
             String body = linkedDoc.body().text();
 
-         // Create a JSON object.
+            // Create a JSON object.
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("title", title);
             jsonObject.put("body", body);
@@ -33,13 +33,11 @@ public class WebScraper {
             // Write the JSON object to a file.
             String jsonString = jsonObject.toString();
             Files.write(Paths.get("page" + i++ + ".json"), jsonString.getBytes());
-            
 
             System.out.println("Data from " + linkHref + " stored to JSON file.");
         }
     }
 }
-
 
 //Output
 Data from https://www.cnn.com stored to JSON file.
@@ -114,4 +112,109 @@ Data from https://www.cnn.com/markets stored to JSON file.
 Data from https://www.cnn.com/markets/premarkets stored to JSON file.
 Data from https://www.cnn.com/markets/after-hours stored to JSON file.
 Data from https://money.cnn.com/data/hotstocks/ stored to JSON file.
-........
+Data from https://www.cnn.com/markets/fear-and-greed stored to JSON file.
+Data from https://money.cnn.com/data/world_markets/americas/ stored to JSON file.
+Data from https://www.cnn.com/business/investing stored to JSON file.
+Data from https://www.cnn.com/specials/investing/markets-now stored to JSON file.
+Data from https://www.cnn.com/specials/investing/before-the-bell stored to JSON file.
+Data from https://www.cnn.com/specials/business/nightcap stored to JSON file.
+Data from https://www.cnn.com/opinions stored to JSON file.
+Data from https://www.cnn.com/opinions/opinion-politics stored to JSON file.
+Data from https://www.cnn.com/opinions/opinion-social-issues stored to JSON file.
+Data from https://www.cnn.com/health stored to JSON file.
+Data from https://www.cnn.com/interactive/life-but-better/ stored to JSON file.
+Data from https://www.cnn.com/specials/health/fitness-life-but-better stored to JSON file.
+Data from https://www.cnn.com/specials/health/food-life-but-better stored to JSON file.
+Data from https://www.cnn.com/specials/health/sleep-life-but-better stored to JSON file.
+Data from https://www.cnn.com/specials/health/mindfulness-life-but-better stored to JSON file.
+Data from https://www.cnn.com/specials/health/relationships-life-but-better stored to JSON file.
+Data from https://www.cnn.com/entertainment stored to JSON file.
+Data from https://www.cnn.com/entertainment/movies stored to JSON file.
+Data from https://www.cnn.com/entertainment/tv-shows stored to JSON file.
+Data from https://www.cnn.com/entertainment/celebrities stored to JSON file.
+Data from https://www.cnn.com/business/tech stored to JSON file.
+Data from https://www.cnn.com/specials/tech/innovate stored to JSON file.
+Data from https://www.cnn.com/specials/tech/gadget stored to JSON file.
+Data from https://www.cnn.com/specials/tech/foreseeable-future stored to JSON file.
+Data from https://www.cnn.com/specials/tech/mission-ahead stored to JSON file.
+Data from https://www.cnn.com/specials/tech/upstarts stored to JSON file.
+Data from https://www.cnn.com/specials/tech/work-transformed stored to JSON file.
+Data from https://www.cnn.com/specials/tech/innovative-cities stored to JSON file.
+Data from https://www.cnn.com/style stored to JSON file.
+Data from https://www.cnn.com/style/arts stored to JSON file.
+Data from https://www.cnn.com/style/design stored to JSON file.
+Data from https://www.cnn.com/style/fashion stored to JSON file.
+Data from https://www.cnn.com/style/architecture stored to JSON file.
+Data from https://www.cnn.com/style/luxury stored to JSON file.
+Data from https://www.cnn.com/style/beauty stored to JSON file.
+Data from https://www.cnn.com/style/videos stored to JSON file.
+Data from https://www.cnn.com/travel stored to JSON file.
+Data from https://www.cnn.com/travel/destinations stored to JSON file.
+Data from https://www.cnn.com/travel/food-and-drink stored to JSON file.
+Data from https://www.cnn.com/travel/stay stored to JSON file.
+Data from https://www.cnn.com/travel/videos stored to JSON file.
+Data from https://www.cnn.com/sports stored to JSON file.
+Data from https://bleacherreport.com/nfl stored to JSON file.
+Data from https://bleacherreport.com/college-football stored to JSON file.
+Data from https://bleacherreport.com/nba stored to JSON file.
+Data from https://bleacherreport.com/mlb stored to JSON file.
+Data from https://bleacherreport.com/world-football stored to JSON file.
+Data from https://www.cnn.com/sport/paris-olympics-2024 stored to JSON file.
+Data from https://bleacherreport.com/nhl stored to JSON file.
+Data from https://www.cnn.com/videos stored to JSON file.
+Data from https://www.cnn.com/live-tv stored to JSON file.
+Data from https://www.cnn.com/specials/digital-studios stored to JSON file.
+Data from https://www.cnn.com/specials/videos/digital-shorts stored to JSON file.
+Data from https://www.cnn.com/specials/videos/hln stored to JSON file.
+Data from https://www.cnn.com/tv/schedule/cnn stored to JSON file.
+Data from https://www.cnn.com/specials/tv/all-shows stored to JSON file.
+Data from https://www.cnn.com/vr stored to JSON file.
+Data from https://www.cnn.com/audio stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/electronics stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/fashion stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/beauty stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/health-fitness stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/home stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/reviews stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/deals stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/money stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/gifts stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/travel stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/outdoors stored to JSON file.
+Data from https://www.cnn.com/cnn-underscored/pets stored to JSON file.
+Data from https://store.cnn.com/?utm_source=cnn.com&utm_medium=referral&utm_campaign=navbar stored to JSON file.
+Data from https://coupons.cnn.com/ stored to JSON file.
+Data from https://www.cnn.com/weather stored to JSON file.
+Data from https://www.cnn.com/specials/world/cnn-climate stored to JSON file.
+Data from https://www.cnn.com/interactive/storm-tracker stored to JSON file.
+Data from https://www.cnn.com/interactive/2020/weather/wildfire-and-air-quality-tracker/ stored to JSON file.
+Data from https://www.cnn.com/weather/video stored to JSON file.
+Data from https://www.cnn.com/about stored to JSON file.
+Data from https://www.cnn.com/specials/photos stored to JSON file.
+Data from https://www.cnn.com/specials/cnn-investigates stored to JSON file.
+Data from https://www.cnn.com/specials/profiles stored to JSON file.
+Data from https://www.cnn.com/specials/more/cnn-leadership stored to JSON file.
+Data from https://www.cnn.com/email/subscription stored to JSON file.
+Data from https://careers.wbd.com/cnnjobs stored to JSON file.
+Data from https://facebook.com/CNN stored to JSON file.
+Data from https://twitter.com/CNN stored to JSON file.
+Data from https://instagram.com/CNN stored to JSON file.
+Data from https://www.cnn.com/europe/live-news/russia-ukraine-war-news-08-17-23/index.html?utm_source=trendbar stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/weather/tropical-storm-hilary-thursday/index.html?utm_source=trendbar stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/us/hawaii-maui-wildfires-death-toll-thursday/index.html?utm_source=trendbar stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/homes/mortgage-rates-august-17/index.html?utm_source=trendbar stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/business/facebook-privacy-settlement-claim-deadline/index.html?utm_source=trendbar stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/entertainment/britney-spears-sam-asghari-divorce/index.html?utm_source=trendbar stored to JSON file.
+Data from https://www.cnn.com/audio/podcasts/axe-files/episodes/dcfdf71c-b54f-4689-a3f3-b0610021d9c9 stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/politics/erica-marsh-fake-twitter-account-real-pictures-florida-trump-voter/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/politics/erica-marsh-fake-twitter-account-real-pictures-florida-trump-voter/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/politics/erica-marsh-fake-twitter-account-real-pictures-florida-trump-voter/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/politics/trump-proposes-2026-trial-federal-election-case/index.html stored to JSON file.
+Data from https://www.cnn.com/videos/us/2023/08/17/idaho-teacher-of-the-year-conservative-backlash-sot-lead-contd-vpx.cnn stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/politics/desantis-super-pac-debate-memo/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/politics/fulton-county-grand-jurors-far-right-internet/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/politics/dianne-feinstein-elder-financial-abuse/index.html stored to JSON file.
+Data from https://www.cnn.com/2023/08/17/politics/trump-georgia-30-unindicted-co-conspirators/index.html stored to JSON file.
+
+
