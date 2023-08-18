@@ -1,0 +1,36 @@
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+
+public class WebPageFetcher {
+
+    public static void fetchAndPrintPageContent(String url) {
+        Document document;
+        try {
+            // Get the HTML document for the provided URL
+            document = Jsoup.connect(url).get();
+
+            // Get the title of the webpage
+            String title = document.title();
+            System.out.println("Title: " + title);
+
+            // Get all links on the page
+            Elements links = document.select("a[href]");
+
+            // Print the links on the page
+            System.out.println("Links on the page:");
+            for (Element link : links) {
+                System.out.println(link.attr("href"));
+            }
+
+            // Print other content from the page, if required
+            // For example, you can extract text or other elements here.
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
